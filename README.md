@@ -33,6 +33,7 @@ Soon:
 - Enable desktop mode (3 dots menu in the top right)
 - Tap the screen and listen to your music!
 
-### Tip
+### Tips
 
-If you set a homescreen shortcut, you do not need to enable desktop mode. It is like using an app.
+- If you set a homescreen shortcut, you do not need to enable desktop mode. It is like using an app.
+- If playback stops after a minute, your battery settings are putting firefox to sleep. `adb shell cmd deviceidle whitelist +org.mozilla.firefox` fixes that until the next restart.
