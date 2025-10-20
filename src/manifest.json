@@ -1,0 +1,53 @@
+{
+  "manifest_version": 2,
+  "name": "SpotifyMobileEnhancer",
+  "version": "1.9",
+  "description": "This extension makes use of Spotify's desktop version and re-models it back into a mobile UI. This means we get all the desktop features and are not limiting ourselfs with the mobile experience.",
+  "author": "SLX",
+  "icons": {
+    "48": "icons/spotify-48.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://open.spotify.com/*",
+        "https://open-exp.spotifycdn.com/*"
+      ],
+      "js": [
+        "inject.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_end",
+      "world": "MAIN",
+      "all_frames": true
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{54325e62-5e33-4bbf-90a5-9c48a3ec76c6}",
+      "strict_min_version": "113.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ],
+        "optional": []
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "113.0"
+    }
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "*://open.spotify.com/*",
+    "*://open-exp.spotifycdn.com/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  }
+}

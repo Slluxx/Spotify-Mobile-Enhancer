@@ -1,0 +1,217 @@
+/*
+.centered-layout {
+    --panel-gap: 0px !important;
+}
+*/
+:fullscreen {
+
+    /* hide left playlist sidebar */
+    #Desktop_LeftSidebar_Id {
+        display: none !important;
+    }
+
+    /* hide right album stuff sidebar */
+    div:has(> div > #Desktop_PanelContainer_Id) {
+        display: none !important;
+    }
+
+    /* hide navbar main logo */
+    #global-nav-bar> :nth-child(2) {
+        display: none !important;
+    }
+
+    /* hide navbar right side buttons */
+    #global-nav-bar> :nth-child(4) {
+        display: none !important;
+    }
+
+    /* remove padding from main content*/
+    [data-testid="root"]>div:nth-child(2) {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+
+    /* hide footer */
+    nav[data-testid="footer-div"] {
+        display: none !important;
+    }
+
+    /* hide play bar title/album indicator */
+    div:has(> div[data-testid="now-playing-widget"]) {
+        display: none !important;
+    }
+
+    /* realign bottom playbar */
+    aside[data-testid="now-playing-bar"] {
+        min-width: unset !important;
+    }
+
+    aside[data-testid="now-playing-bar"]>div {
+        flex-direction: column !important;
+    }
+
+    aside[data-testid="now-playing-bar"]>div>:nth-child(3) {
+        width: 100% !important;
+    }
+
+    aside[data-testid="now-playing-bar"]>div>:nth-child(3)>div {
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    div:has(>div[data-testid="player-controls"]) {
+        width: 100% !important;
+    }
+
+    /* remove now playing button */
+    [data-restore-focus-key="now_playing_view"] {
+        display: none !important;
+    }
+
+    /* remove lyrics button */
+    [data-testid="lyrics-button"] {
+        display: none !important;
+    }
+
+    /* remove queue button */
+    div:has(>button[data-testid="control-button-queue"]) {
+        display: none !important;
+    }
+
+    /* remove device picker */
+    [data-restore-focus-key="device_picker"] {
+        display: none !important;
+    }
+
+    /* remove fullscreen button */
+    [data-testid="fullscreen-mode-button"] {
+        display: none !important;
+    }
+
+    [data-testid="volume-bar"] {
+        min-width: 50% !important;
+        max-width: 50% !important;
+    }
+
+}
+
+
+html.spotify__container--is-pwa {
+    [data-testid="now-playing-bar"] {
+        min-width: unset !important;
+    }
+
+    body {
+        min-height: unset!important;
+        min-width: unset!important;
+        width: unset!important;
+        max-width: unset!important;
+    }
+}
+
+
+
+
+.fullscreenWrapper {
+    display: none;
+}
+
+html:not(:has(:fullscreen)) {
+    .fullscreenWrapper {
+        display: block;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: radial-gradient(circle at top, #171d27 0%, #000 90%);
+        color: white;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        text-align: center;
+        z-index: 999999;
+        overflow-y: auto;
+        /* allows scroll if needed on small screens */
+        overflow-x: hidden;
+    }
+
+    .fw_flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 4vh 6vw;
+        /* ensures space from screen edges */
+        animation: fadeIn 0.8s ease-out;
+    }
+
+    .fw_content {
+        max-width: 900px;
+        width: 100%;
+        line-height: 1.6;
+        text-wrap: balance;
+        /* modern browsers auto-balance line breaks */
+    }
+
+    /* Big readable heading */
+    .fw_content h1 {
+        font-size: clamp(2.8rem, 8vw, 5.5rem);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(90deg, #1db954, #1ed760);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Paragraphs scale smoothly */
+    .fw_content p {
+        font-size: clamp(1.2rem, 3.2vw, 1.75rem);
+        margin: 1rem 0;
+        color: #e0e0e0;
+        line-height: 1.5;
+        word-wrap: break-word;
+    }
+
+    /* Highlighted text and links */
+    .fw_content b {
+        color: #fff;
+    }
+
+    .fw_content a {
+        color: #1ed760;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .fw_content a:hover {
+        text-decoration: underline;
+    }
+
+    /* Subtle divider */
+    .fw_content hr {
+        border: none;
+        border-top: 1px solid #333;
+        margin: 1.8rem auto;
+        width: 70%;
+    }
+
+    /* Final hint message */
+    .tap-hint {
+        margin-top: 2.5rem;
+        font-size: clamp(1rem, 3vw, 1.4rem);
+        opacity: 0.9;
+        font-weight: 500;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+}
