@@ -2,7 +2,7 @@
 
 This extension makes use of Spotify's desktop version and re-models it back into a mobile UI. This means we get all the desktop features and are not limiting ourselfs with the mobile experience. 
 
-Get it on [Firefox AMO for android] and join our [Discord Server](http://discord.gg/ADHdD3MGgX) for news, help or feature requests!
+Get it on [Firefox AMO for android](https://addons.mozilla.org/en-US/android/addon/spotifymobileenhancer/) and join our [Discord Server](http://discord.gg/ADHdD3MGgX) for news, help or feature requests!
 
 
 Currently Working:
