@@ -10,6 +10,11 @@
         display: none !important;
     }
 
+    #Desktop_LeftSidebar_Id.visible {
+        display: unset !important;
+    }
+
+
     /* hide right album stuff sidebar */
     div:has(> div > #Desktop_PanelContainer_Id) {
         display: none !important;
@@ -90,13 +95,17 @@
     }
 
     [data-testid="volume-bar"] {
-        display: none!important;
+        display: none !important;
         min-width: 50% !important;
         max-width: 50% !important;
     }
 
     .os-scrollbar-horizontal {
-        display: none!important;
+        display: none !important;
+    }
+
+    #Desktop_LeftSidebar_Id header button:nth-of-type(2) {
+        display: none !important;
     }
 
 }
@@ -108,10 +117,10 @@ html.spotify__container--is-pwa {
     }
 
     body {
-        min-height: unset!important;
-        min-width: unset!important;
-        width: unset!important;
-        max-width: unset!important;
+        min-height: unset !important;
+        min-width: unset !important;
+        width: unset !important;
+        max-width: unset !important;
     }
 }
 
