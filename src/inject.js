@@ -2,7 +2,7 @@
 document.addEventListener("click", async function () {
   let isDesktopMode = window.matchMedia('(min-width: 800px)').matches;
   let isPWA = document.documentElement.className.includes('is-pwa');
-  
+
   // Only continue if it's desktop mode OR a PWA
   if (!isDesktopMode && !isPWA) return;
 
@@ -11,6 +11,11 @@ document.addEventListener("click", async function () {
       await document.body.requestFullscreen();
     } catch (err) {
       console.error('Fullscreen failed:', err);
+    }
+    try {
+      const wakeLock = await navigator.wakeLock.request("screen");
+    } catch (err) {
+      console.log(`${err.name}, ${err.message}`);
     }
   }
 });
@@ -79,6 +84,7 @@ async function waitForPlayerAndHook() {
     await new Promise(r => setTimeout(r, 100));
   }
   console.log("SMEPlayer found");
+  player1?._listPlayer?.setVolume(1)
 
   navigator.mediaSession.setActionHandler('pause', async (...args) => {
     // record this pause event's time
