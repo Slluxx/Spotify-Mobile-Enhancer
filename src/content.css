@@ -90,8 +90,13 @@
     }
 
     [data-testid="volume-bar"] {
+        display: none!important;
         min-width: 50% !important;
         max-width: 50% !important;
+    }
+
+    .os-scrollbar-horizontal {
+        display: none!important;
     }
 
 }
@@ -130,7 +135,6 @@ html:not(:has(:fullscreen)) {
         text-align: center;
         z-index: 999999;
         overflow-y: auto;
-        /* allows scroll if needed on small screens */
         overflow-x: hidden;
     }
 
@@ -140,7 +144,6 @@ html:not(:has(:fullscreen)) {
         justify-content: center;
         min-height: 100vh;
         padding: 4vh 6vw;
-        /* ensures space from screen edges */
         animation: fadeIn 0.8s ease-out;
     }
 
@@ -149,10 +152,8 @@ html:not(:has(:fullscreen)) {
         width: 100%;
         line-height: 1.6;
         text-wrap: balance;
-        /* modern browsers auto-balance line breaks */
     }
 
-    /* Big readable heading */
     .fw_content h1 {
         font-size: clamp(2.8rem, 8vw, 5.5rem);
         font-weight: 700;
@@ -162,7 +163,6 @@ html:not(:has(:fullscreen)) {
         -webkit-text-fill-color: transparent;
     }
 
-    /* Paragraphs scale smoothly */
     .fw_content p {
         font-size: clamp(1.2rem, 3.2vw, 1.75rem);
         margin: 1rem 0;
@@ -171,7 +171,6 @@ html:not(:has(:fullscreen)) {
         word-wrap: break-word;
     }
 
-    /* Highlighted text and links */
     .fw_content b {
         color: #fff;
     }
@@ -186,7 +185,6 @@ html:not(:has(:fullscreen)) {
         text-decoration: underline;
     }
 
-    /* Subtle divider */
     .fw_content hr {
         border: none;
         border-top: 1px solid #333;
@@ -194,7 +192,6 @@ html:not(:has(:fullscreen)) {
         width: 70%;
     }
 
-    /* Final hint message */
     .tap-hint {
         margin-top: 2.5rem;
         font-size: clamp(1rem, 3vw, 1.4rem);
