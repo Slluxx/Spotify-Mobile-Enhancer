@@ -1,5 +1,5 @@
 
-document.addEventListener("click", async function () {
+document.addEventListener("click", async function (event) {
   let isDesktopMode = window.matchMedia('(min-width: 800px)').matches;
   let isPWA = document.documentElement.className.includes('is-pwa');
 
@@ -19,6 +19,24 @@ document.addEventListener("click", async function () {
     }
   }
 });
+
+document.addEventListener("dblclick", (event) => {
+  let sidebar = document.querySelector("#Desktop_LeftSidebar_Id")
+  if (sidebar.classList.contains("visible")) {
+    sidebar.classList.remove("visible")
+  } else {
+    sidebar.classList.add("visible")
+  }
+});
+
+// document.addEventListener("click", (event) => {
+//   // a click anywhere outside of #Desktop_LeftSidebar_Id should close it.
+//   let sidebar = document.querySelector("#Desktop_LeftSidebar_Id")
+//   if (!sidebar.contains(event.target)) {
+//     console.log(event.target)
+//     sidebar.classList.remove("visible")
+//   }
+// });
 
 // Create wrapper
 let wrapper = document.createElement("div");
