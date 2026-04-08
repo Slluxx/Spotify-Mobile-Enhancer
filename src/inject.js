@@ -29,6 +29,63 @@ document.addEventListener("dblclick", (event) => {
   }
 });
 
+
+function applyRightSidebarHiding() {
+  document.querySelectorAll('*').forEach(el => {
+    const s = getComputedStyle(el);
+    if (
+      s.isolation === 'isolate' &&
+      s.minHeight === '0px' &&
+      s.position === 'relative' &&
+      s.gridArea === 'right-sidebar'
+    ) {
+      if (el.style.display !== 'none') {
+        el.style.display = 'none';
+        console.log('Hidden rightSidebar:', el);
+      }
+    }
+  });
+}
+
+function applyHomeButtonLogic() {
+  const homebtn = document.querySelector('[data-testid="home-button"]');
+  if (!homebtn) return;
+
+  const parent = homebtn.parentElement;
+  if (!parent) return;
+
+  // Prevent duplicate button
+  if (parent.querySelector('.custom-back-btn')) return;
+
+  const backbtn = document.createElement('button');
+  backbtn.innerText = '◀️';
+  backbtn.className = 'custom-back-btn e-10180-legacy-button e-10180-legacy-button-tertiary e-10180-overflow-wrap-anywhere e-10180-button-tertiary--icon-only-medium e-10180-button-tertiary--icon-only e-10180-button-tertiary--text-subdued encore-internal-color-text-subdued _Bg_zSvFrEutyacG kUHE42xvQVzWqabl uBpmNFia37U4nzmX';
+
+  backbtn.addEventListener('click', () => {
+    console.log('go back');
+    history.back();
+  });
+
+  homebtn.before(backbtn);
+  console.log('Back button added');
+}
+
+// Run initially
+applyRightSidebarHiding();
+applyHomeButtonLogic();
+
+// Observer
+const observer = new MutationObserver(() => {
+  applyRightSidebarHiding();
+  applyHomeButtonLogic();
+});
+
+observer.observe(document.body, {
+  childList: true,
+  subtree: true
+});
+
+
 // document.addEventListener("click", (event) => {
 //   // a click anywhere outside of #Desktop_LeftSidebar_Id should close it.
 //   let sidebar = document.querySelector("#Desktop_LeftSidebar_Id")

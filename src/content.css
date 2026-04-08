@@ -25,6 +25,12 @@
         display: none !important;
     }
 
+    /* hide search bar appendix */
+    div:has(>[data-testid="browse-button"]) {
+        display: none !important;
+    }
+    
+
     /* hide navbar right side buttons */
     #global-nav-bar> :nth-child(4) {
         display: none !important;
@@ -69,6 +75,10 @@
         width: 100% !important;
     }
 
+    div:has(>[data-testid="lyrics-button"]) {
+        display: none !important;
+    }
+
     /* remove now playing button */
     [data-restore-focus-key="now_playing_view"] {
         display: none !important;
@@ -105,6 +115,10 @@
     }
 
     #Desktop_LeftSidebar_Id header button:nth-of-type(2) {
+        display: none !important;
+    }
+
+    #main-view~div:has(#Desktop_PanelContainer_Id) {
         display: none !important;
     }
 
